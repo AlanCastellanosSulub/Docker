@@ -1,8 +1,10 @@
+# Use root/mysql as user/password credentials
+
 version: '3.8'
 
 services:
 
-mysql:
+  mysql:
     container_name: mysql_spring
     image: mysql:8.0
     command:

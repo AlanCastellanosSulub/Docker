@@ -1,6 +1,19 @@
 version: "3"
 services:
  
+  mysql:
+    container_name: mysql_spring
+    image: mysql:8.0
+    command:
+         --default-authentication-plugin=mysql_native_password
+    environment:
+       MYSQL_ROOT_PASSWORD: "mysql"
+    ports:
+      - "33306:3306"
+    volumes:
+      - ../mysql:/var/lib/mysql
+    restart: always
+
   tomcat:
     container_name: tomcat_spring
     image: tomcat:9.0
@@ -10,15 +23,4 @@ services:
       - ../Dokcer/spring-boot-backend.war:/usr/local/tomcat/webapps/spring-boot-backend.war
       - ../Docker/spring-boot-backend:/usr/local/tomcat/webapps/spring-boot-backend
     links:
-      - "mysql:db"
- 
-  mysql:
-    container_name: mysql_spring
-    image: mysql:8.0
-    environment:
-       MYSQL_ROOT_PASSWORD: "my_spring"
-    volumes:
-      - ../mysql:/var/lib/mysql
-    ports:
-      - "3306:3306"
-    restart: unless-stopped
+      - "mysql:mysql_spring"

@@ -2,21 +2,21 @@ version: "3"
 services:
  
   tomcat:
-    container_name: miproyecto-tomcat
-    image: tomcat:8-jdk8
+    container_name: tomcat_spring
+    image: tomcat:9.0
     ports:
       - 8080:8080
     volumes:
-      - ../target/miproyecto.war:/usr/local/tomcat/webapps/miproyecto.war
-      - ../target/miproyecto:/usr/local/tomcat/webapps/miproyecto
+      - ../Dokcer/spring-boot-backend.war:/usr/local/tomcat/webapps/spring-boot-backend.war
+      - ../Docker/spring-boot-backend:/usr/local/tomcat/webapps/spring-boot-backend
     links:
       - "mysql:db"
  
   mysql:
-    container_name: miproyecto-mysql
+    container_name: mysql_spring
     image: mysql:8.0
     environment:
-       MYSQL_ROOT_PASSWORD: "mipassword"
+       MYSQL_ROOT_PASSWORD: "my_spring"
     volumes:
       - ../mysql:/var/lib/mysql
     ports:

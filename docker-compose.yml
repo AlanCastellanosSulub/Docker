@@ -1,13 +1,12 @@
 version: "3"
 services:
- 
+
   mysql:
     container_name: mysql_spring
     image: mysql:8.0
-    command:
-         --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password
     environment:
-       MYSQL_ROOT_PASSWORD: "mysql"
+      MYSQL_ROOT_PASSWORD: "mysql"
     ports:
       - "33306:3306"
     volumes:

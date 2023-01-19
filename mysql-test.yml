@@ -6,7 +6,7 @@ services:
 
   mysql:
     container_name: mysql_spring
-    image: mysql:7.0
+    image: mysql:5.7.41
     command:
          --default-authentication-plugin=mysql_native_password
     environment:

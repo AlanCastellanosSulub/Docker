@@ -3,7 +3,7 @@ services:
 
   mysql:
     container_name: mysql_spring
-    image: mysql:8.0
+    image: mysql:5.7.41
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: "mysql"
@@ -19,7 +19,6 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ../Dokcer/spring-boot-backend.war:/usr/local/tomcat/webapps/spring-boot-backend.war
-      - ../Docker/spring-boot-backend:/usr/local/tomcat/webapps/spring-boot-backend
+      - ../Docker/spring-boot-backend.war:/usr/local/tomcat/webapps/spring-boot-backend.war
     links:
       - "mysql:mysql_spring"

@@ -23,9 +23,11 @@ services:
     networks:
       - spring-mysql-network
     depends_on:
-      - mysql_spring    
+      - mysql    
     volumes:
       - ../Docker/spring-boot-backend.war:/usr/local/tomcat/webapps/spring-boot-backend.war
+    link:
+      - mysql:mysql_spring
 
 networks:
     spring-mysql-network:

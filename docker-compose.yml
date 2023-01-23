@@ -26,4 +26,8 @@ services:
       - mysql_spring    
     volumes:
       - ../Docker/spring-boot-backend.war:/usr/local/tomcat/webapps/spring-boot-backend.war
+
+networks:
+    spring-mysql-network:
+        driver: bridge
     

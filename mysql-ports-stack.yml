@@ -4,12 +4,17 @@ version: '3.8'
 
 services:
 
-    db:
+    mysql:
+        container_name: mysql_spring
         image: mysql:5.7
         command:
             --default-authentication-plugin=mysql_native_password
-        restart: always
         environment:
             MYSQL_ROOT_PASSWORD: mysql
+            MYSQL_DATABASE: prueba
         ports:
-            - "33306:3306"
+            - "3380:3306"
+        volumes:
+            - ./prueba.sql:/docker-entrypoint-initdb.d/prueba.sql
+        restart: always
+        

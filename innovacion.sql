@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2023 a las 01:34:57
+-- Tiempo de generación: 08-10-2023 a las 01:37:40
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.15
 
@@ -633,8 +633,7 @@ INSERT INTO `registro` (`id_usuario`, `noControl`, `nombre`, `apellido`, `sexo`,
 (8, '1039045789', 'Lino ', 'Rangel Gomez', 'Masculino', '87652726', 'null', '', 'Lino@hotmail.com', '123', 'Revisor', 'Instituto tecnologico chetumal', 'Sistemas y Computacion', 'on', 1),
 (9, '10390987', 'Julio ', 'Carrillo Aleman', 'Masculino', '182979182', 'null', '', 'Julio@hotmail.com', '123', 'Administrador', 'Instituto tecnologico chetumal', 'Sistemas y Computacion', 'on', 0),
 (10, '10390393', 'Alex Ernesto', 'salmoran Salmoran', 'Masculino', '98310390393', '12', 'Sistemas Computacionales', 'Axel_salmoran@hotmail.com', '123', 'Investigador', '', 'null', 'on', 0),
-(11, '17390319', 'Alan de Jesus', 'Castellanos Sulub', 'Masculino', '989421', '10', 'Ing. en Sistemas Computacionales', 'adjcastellanos@gmail.com', '123', 'Investigador', '', 'null', 'on', 0),
-(12, '17390833', 'Daniel Jesús', 'Cano Ramirez', 'Masculino', '9838385273', '11', 'Ing. en Sistemas Computacionales', 'danywolf@gmail.com', '123', 'Investigador', NULL, NULL, 'true', 0);
+(11, '17390319', 'Alan de Jesus', 'Castellanos Sulub', 'Masculino', '989421', '10', 'Ing. en Sistemas Computacionales', 'adjcastellanos@gmail.com', '123', 'Investigador', '', 'null', 'on', 0);
 
 -- --------------------------------------------------------
 
@@ -902,7 +901,8 @@ ALTER TABLE `proyectos`
 --
 ALTER TABLE `registro`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD KEY `email` (`email`);
+  ADD KEY `email` (`email`),
+  ADD KEY `noControl` (`noControl`);
 
 --
 -- Indices de la tabla `reportes`

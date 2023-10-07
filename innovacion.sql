@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2023 a las 01:17:33
+-- Tiempo de generación: 08-10-2023 a las 01:34:57
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.15
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `innovacion`
 --
-Use innovacion;
+
 -- --------------------------------------------------------
 
 --
@@ -604,7 +604,7 @@ CREATE TABLE `proyectos` (
 --
 
 CREATE TABLE `registro` (
-  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `noControl` varchar(36) NOT NULL,
   `nombre` varchar(36) NOT NULL,
   `apellido` varchar(36) NOT NULL,
@@ -625,7 +625,7 @@ CREATE TABLE `registro` (
 -- Volcado de datos para la tabla `registro`
 --
 
-INSERT INTO `registro` (`id`, `noControl`, `nombre`, `apellido`, `sexo`, `telefono`, `semestre`, `carrera`, `email`, `contrasena1`, `rol`, `institucion`, `area`, `notificacion`, `estado`) VALUES
+INSERT INTO `registro` (`id_usuario`, `noControl`, `nombre`, `apellido`, `sexo`, `telefono`, `semestre`, `carrera`, `email`, `contrasena1`, `rol`, `institucion`, `area`, `notificacion`, `estado`) VALUES
 (2, '10390453', 'Jonny Alberto', 'Wicab Alvarez', 'Masculino', '988927', '4', 'Sistemas Computacionales', 'jonny-1000@hotmail.com', '123', 'Investigador', '', 'null', 'on', 0),
 (3, '10390456', 'Blandy', 'Pamplona Solis', 'Masculino', '123123123', 'null', '', 'Blandy@hotmail.com', '123', 'Revisor', 'Instituto tecnologico de chetumal', 'Sistemas y Computacion', 'on', 1),
 (6, '10390456', 'Agustin ', 'Esquivel Pat', 'Masculino', '9177822', 'null', '', 'Agustin@hotmail.com', '123', 'Revisor', 'Instituto tecnologico chetumal', 'Sistemas y Computacion', 'on', 1),
@@ -633,7 +633,8 @@ INSERT INTO `registro` (`id`, `noControl`, `nombre`, `apellido`, `sexo`, `telefo
 (8, '1039045789', 'Lino ', 'Rangel Gomez', 'Masculino', '87652726', 'null', '', 'Lino@hotmail.com', '123', 'Revisor', 'Instituto tecnologico chetumal', 'Sistemas y Computacion', 'on', 1),
 (9, '10390987', 'Julio ', 'Carrillo Aleman', 'Masculino', '182979182', 'null', '', 'Julio@hotmail.com', '123', 'Administrador', 'Instituto tecnologico chetumal', 'Sistemas y Computacion', 'on', 0),
 (10, '10390393', 'Alex Ernesto', 'salmoran Salmoran', 'Masculino', '98310390393', '12', 'Sistemas Computacionales', 'Axel_salmoran@hotmail.com', '123', 'Investigador', '', 'null', 'on', 0),
-(11, '17390319', 'Alan de Jesus', 'Castellanos Sulub', 'Masculino', '989421', '10', 'Ing. en Sistemas Computacionales', 'adjcastellanos@gmail.com', '123', 'Investigador', '', 'null', 'null', 0);
+(11, '17390319', 'Alan de Jesus', 'Castellanos Sulub', 'Masculino', '989421', '10', 'Ing. en Sistemas Computacionales', 'adjcastellanos@gmail.com', '123', 'Investigador', '', 'null', 'on', 0),
+(12, '17390833', 'Daniel Jesús', 'Cano Ramirez', 'Masculino', '9838385273', '11', 'Ing. en Sistemas Computacionales', 'danywolf@gmail.com', '123', 'Investigador', NULL, NULL, 'true', 0);
 
 -- --------------------------------------------------------
 
@@ -900,7 +901,8 @@ ALTER TABLE `proyectos`
 -- Indices de la tabla `registro`
 --
 ALTER TABLE `registro`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indices de la tabla `reportes`
@@ -1037,7 +1039,7 @@ ALTER TABLE `proyectos`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `reportes`

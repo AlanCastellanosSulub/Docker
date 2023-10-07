@@ -7,14 +7,14 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: mysql
-      MYSQL_DATABASE: prueba
+      MYSQL_DATABASE: innovacion
     ports:
       - '3380:3306'
     networks:
       - spring-mysql-network  
     volumes:
       - ../mysql:/var/lib/mysql
-      - ./prueba.sql:/docker-entrypoint-initdb.d/prueba.sql
+      - ./innovacion.sql:/docker-entrypoint-initdb.d/innovacion.sql
     restart: always
 
   tomcat:

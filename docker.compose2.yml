@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+ mysql:
+  container_name: mysql-container
+  image: mysql:8.0
+  environment:
+   MYSQL_ROOT_PASSWORD: mysql
+   MYSQL_DATABASE: innovacion
+  ports: 
+   - 3306:3306
+  volumes: 
+   - ../mysql:/var/lib/mysql
+   - ./innovacion.sql:/docker-entrypoint-initdb.d/innovacion.sql
+  restart: always
+ 
+ tomcat:
+  container_name: tomcat-container
+  image: tomcat:9.0
+  ports: 
+   - 8080:8080
+  volumes:
+   - ../Docker/spring-boot-backend.war:/usr/local/tomcat/webapps/spring-boot-backend.war
+  depends_on: 
+   - mysql
+
+volumes:
+ mysql-data:
